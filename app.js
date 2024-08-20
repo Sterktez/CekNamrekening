@@ -2,14 +2,6 @@ const express = require("express");
 const axios = require("axios");
 const app = express();
 
-function checkReferer(req, res, next) {
-  const referer = req.headers.referer;
-  if (!referer || !referer.startsWith("https://cek-rekening.lfourr.com/")) {
-    return res.status(403).send("Access Denied");
-  }
-  next();
-}
-
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
